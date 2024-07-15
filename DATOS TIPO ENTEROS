@@ -1,0 +1,75 @@
+class Nodo
+{
+    public int dato;
+    public Nodo siguiente;
+
+    public Nodo(int dato)
+    {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+class ListaEnlazada
+{
+    private Nodo cabeza; // Referencia al primer nodo de la lista
+
+    // Constructor para crear una lista vacía
+    public ListaEnlazada()
+    {
+        cabeza = null;
+    }
+
+    // Método para insertar un nodo al final de la lista
+    public void InsertarAlFinal(int dato)
+    {
+        Nodo nuevoNodo = new Nodo(dato);
+
+        if (cabeza == null)
+        {
+            cabeza = nuevoNodo;
+        }
+        else
+        {
+            Nodo actual = cabeza;
+            while (actual.siguiente != null)
+            {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = nuevoNodo;
+        }
+    }
+
+    // Método para insertar un nodo al inicio de la lista
+    public void InsertarAlInicio(int dato)
+    {
+        Nodo nuevoNodo = new Nodo(dato);
+        nuevoNodo.siguiente = cabeza;
+        cabeza = nuevoNodo;
+    }
+
+    // Método para recorrer la lista y mostrar sus elementos
+    public void RecorrerLista()
+    {
+        Nodo actual = cabeza;
+        while (actual != null)
+        {
+            Console.Write(actual.dato + " ");
+            actual = actual.siguiente;
+        }
+        Console.WriteLine();
+    }
+
+    // Método para contar el número de nodos en la lista
+    public int ContarNodos()
+    {
+        int contador = 0;
+        Nodo actual = cabeza;
+        while (actual != null)
+        {
+            contador++;
+            actual = actual.siguiente;
+        }
+        return contador;
+    }
+}
