@@ -1,0 +1,71 @@
+// Definición de la clase Nodo
+public class Nodo
+{
+    public int dato;
+    public Nodo siguiente;
+
+    public Nodo(int dato)
+    {
+        this.dato = dato;
+        this.siguiente = null;
+    }
+}
+
+// Definición de la clase ListaEnlazada
+public class ListaEnlazada
+{
+    private Nodo cabeza;
+
+    public ListaEnlazada()
+    {
+        this.cabeza = null;
+    }
+
+    // Método para añadir un nodo al final de la lista
+    public void AgregarNodo(int dato)
+    {
+        Nodo nuevoNodo = new Nodo(dato);
+        if (cabeza == null)
+        {
+            cabeza = nuevoNodo;
+        }
+        else
+        {
+            Nodo actual = cabeza;
+            while (actual.siguiente != null)
+            {
+                actual = actual.siguiente;
+            }
+            actual.siguiente = nuevoNodo;
+        }
+    }
+
+    // Método para contar el número de nodos en la lista
+    public int ContarNodos()
+    {
+        int contador = 0;
+        Nodo actual = cabeza;
+        while (actual != null)
+        {
+            contador++;
+            actual = actual.siguiente;
+        }
+        return contador;
+    }
+}
+
+// Ejemplo de uso
+class Program
+{
+    static void Main(string[] args)
+    {
+        ListaEnlazada lista = new ListaEnlazada();
+        lista.AgregarNodo(1);
+        lista.AgregarNodo(2);
+        lista.AgregarNodo(3);
+        lista.AgregarNodo(4);
+
+        int numeroDeElementos = lista.ContarNodos();
+        Console.WriteLine("Número de elementos en la lista: " + numeroDeElementos);
+    }
+}
