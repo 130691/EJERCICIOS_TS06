@@ -1,0 +1,25 @@
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        List<int> miLista = new List<int> { 1, 2, 3, 2, 4, 2, 5 };
+
+        // Valor que deseamos buscar
+        int valorBuscado = 2;
+
+        // Encontrar todos los elementos que coinciden con el valor buscado
+        List<int> elementosEncontrados = miLista.FindAll(x => x == valorBuscado);
+
+        if (elementosEncontrados.Count > 0)
+        {
+            Console.WriteLine($"El valor {valorBuscado} se encontró {elementosEncontrados.Count} veces en la lista.");
+        }
+        else
+        {
+            Console.WriteLine($"El valor {valorBuscado} no fue encontrado en la lista.");
+        }
+    }
+}
